@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barra circular baseada no scroll</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 200vh;
+            display: grid;
+            place-content: center;
+        }
+
+        @property --progress{
+            syntax: "<percentage>";
+                inherits: false;
+                initial-value: 0%;
+        }
+
+        .circle{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+
+            background: conic-gradient(
+                red var(--progress),
+                #ddd var(--progress)
+            );
+
+            animation: fill linear;
+            animation-timeline: scroll();
+        }
+
+        @keyframes fill{
+            to{--progress: 100%;}
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+</body>
+</html>
