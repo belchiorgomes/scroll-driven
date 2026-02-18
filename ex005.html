@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard profissional</title>
+    <style>
+        body {
+            height: 200vh;
+            margin: 0;
+            background: #0f172a;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Centraliza */
+        .dashboard {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Card */
+        .card {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        /* variável animável */
+        @property --progress {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 0%;
+        }
+
+        /* círculo */
+        .circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* anel animado */
+        .progress-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+
+            background: conic-gradient(
+                #22d3ee,
+                #3b82f6,
+                #6366f1,
+                #22d3ee
+            );
+
+            mask: radial-gradient(circle at center, transparent 60%, black 61%);
+            -webkit-mask: radial-gradient(circle at center, transparent 60%, black 61%);
+
+            transform: rotate(-90deg);
+            
+            animation: fill linear;
+            animation-timeline: scroll();
+        }
+
+        @keyframes fill {
+            to {
+                --progress: 100%;
+            }
+        }
+
+        /* aplica progresso */
+        .progress-ring {
+            background: conic-gradient(
+                #22d3ee var(--progress),
+                #1e293b var(--progress)
+            );
+        }
+
+        /* conteúdo central */
+        .content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        /* número */
+        .value {
+            font-size: 42px;
+            font-weight: bold;
+            counter-reset: progress var(--progress);
+        }
+
+        .value::after {
+            content: counter(progress) "%";     
+        }
+
+        /* label */
+        .label {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="card">
+            <div class="circle">
+            <div class="progress-ring"></div>
+            <div class="content">
+                <span class="value"></span>
+                <span class="label">Scroll Progress</span>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

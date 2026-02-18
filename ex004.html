@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 200vh;
+        }
+
+        /* @property --progress{
+            syntax: "<percentage>";
+            inherits: false;
+            initial-value: 0%;
+        } */
+
+        @property --progress{
+            syntax: "<number>";
+            inherits: false;
+            initial-value: 0;
+        }
+
+        .wrapper{
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-content: center;
+
+            .circle{
+                position: relative;
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                background-color: #ddd;
+                display: grid;
+                place-content: center;
+                grid-template-columns: 1fr;
+
+                .inner{
+                    grid-area: 1 / 1;
+                    width: inherit;
+                    height: inherit;
+                    border-radius: inherit;
+                    /* background: conic-gradient(
+                        coral var(--progress),
+                        transparent var(--progress)
+                    ); */
+
+                    background: conic-gradient(
+                        coral calc(var(--progress) * 1%),
+                        transparent calc(var(--progress) * 1%)
+                    );
+                    animation: fill 1s linear;
+                    animation-timeline: scroll();
+                }
+
+                .number{
+                    /* position: relative; */
+                    grid-area: 1 / 1;
+                    font-size: 32px;
+                    font-weight: bold;
+                    text-align: center;
+                    line-height: 180px;
+                    /* counter-reset: progress var(--progress);
+
+                    &::after{
+                        content: counter(progress) "%";
+                    } */
+                }
+            }
+        }
+
+        @keyframes fill{
+            to{
+                --progress: 100;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="circle">
+            <div class="inner"></div>
+            <div class="number"></div>
+        </div>
+    </div>
+
+    <script>
+        const number = document.querySelector(".number");
+        const circle = document.querySelector(".circle");
+
+        window.addEventListener("scroll", () => {
+        const scroll = window.scrollY;
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+        const progress = Math.min(100, Math.round((scroll / maxScroll) * 100));
+
+        circle.style.setProperty("--progress", progress);
+        number.textContent = progress + "%";
+        });
+    </script>
+</body>
+</html>
