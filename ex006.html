@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-  height: 200vh;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-  padding-top: 100px;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elemento aparecendo suavemente ao entrar na tela (só CSS)</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.box {
-  width: 200px;
-  height: 100px;
-  background: royalblue;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    body{
+      height: 300vh;
+      display: grid;
+      place-content: center;
+    }
 
-  /* Estado inicial */
-  opacity: 0;
-  transform: translateY(50px);
+    .card{
+      block-size: 200px;
+      inline-size: 400px;
+      border-radius: .6rem;
+      background-color: coral;
 
-  /* Animação */
-  animation: aparecer linear forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
-}
+      transform: scale(0);
 
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      view-timeline-name: --card;
+      view-timeline-axis: block;
 
-    </style>
+      animation-name: aparencer;
+      animation-timeline: --card;
+
+      /* controla quando começa e termina */
+      animation-range: entry 0% cover 40%;
+      animation-fill-mode: both;
+    }
+
+    @keyframes aparencer{
+      from{
+        opacity: 0;
+        transform: translateY(800px) scale(0);
+      }
+      to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
-    <section class="box">Elemento 1</section>
-<section class="box">Elemento 2</section>
-<section class="box">Elemento 3</section>
-
-
+  <div class="card"></div>
 </body>
 </html>
