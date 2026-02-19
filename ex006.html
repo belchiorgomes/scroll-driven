@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elemento aparecendo suavemente ao entrar na tela (só CSS)</title>
+  <title>Document</title>
   <style>
     *{
       margin: 0;
@@ -11,44 +11,102 @@
       box-sizing: border-box;
     }
 
-    body{
-      height: 300vh;
+    header{
+      width: 100%;
+      height: 70vh;
+      background-color: coral;
       display: grid;
       place-content: center;
     }
 
-    .card{
-      block-size: 200px;
-      inline-size: 400px;
-      border-radius: .6rem;
-      background-color: coral;
+    main{
+      width: 90%;
+      padding: 2rem;
+      margin: .8rem auto;
+      border-radius: .8rem;
+      box-shadow: 0 0 12px #c2c2c2;
 
-      transform: scale(0);
+      section{
+        width: 100%;
+        height: 60vh;
+        display: grid;
+        place-content: center;
+      }
 
-      view-timeline-name: --card;
-      view-timeline-axis: block;
+      .box{
+        width: 90%;
+        height: 400px;
+        margin: 1rem auto;
+        border-radius: .8rem;
+        background-color: coral;
 
-      animation-name: aparencer;
-      animation-timeline: --card;
+        transform: scaleX(0);
 
-      /* controla quando começa e termina */
-      animation-range: entry 0% cover 40%;
-      animation-fill-mode: both;
+        animation: scroll linear;
+        animation-timeline: view();
+        animation-range: cover;
+      }
     }
 
-    @keyframes aparencer{
+    @keyframes scroll{
       from{
-        opacity: 0;
-        transform: translateY(800px) scale(0);
+        transform: scaleX(0);
       }
       to{
-        opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: scaleX(1);
       }
     }
   </style>
 </head>
 <body>
-  <div class="card"></div>
+  <header>
+    <h1>Scroll-driven</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Text</h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda dolores sapiente nulla perspiciatis repellendus libero eos, ipsam fuga rerum sit fugit officia odio eaque vel iste temporibus possimus quo reprehenderit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed numquam ipsum ratione deserunt enim neque, culpa est totam, quis laborum in unde magnam temporibus autem earum, tempora fugit nostrum.
+      </p>
+    </section>
+
+    <section>
+      <h2>Text</h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda dolores sapiente nulla perspiciatis repellendus libero eos, ipsam fuga rerum sit fugit officia odio eaque vel iste temporibus possimus quo reprehenderit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed numquam ipsum ratione deserunt enim neque, culpa est totam, quis laborum in unde magnam temporibus autem earum, tempora fugit nostrum.
+      </p>
+
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda dolores sapiente nulla perspiciatis repellendus libero eos, ipsam fuga rerum sit fugit officia odio eaque vel iste temporibus possimus quo reprehenderit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed numquam ipsum ratione deserunt enim neque, culpa est totam, quis laborum in unde magnam temporibus autem earum, tempora fugit nostrum.
+      </p>
+    </section>
+
+    <article class="box"></article>
+
+    <section>
+      <h2>Text</h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda dolores sapiente nulla perspiciatis repellendus libero eos, ipsam fuga rerum sit fugit officia odio eaque vel iste temporibus possimus quo reprehenderit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed numquam ipsum ratione deserunt enim neque, culpa est totam, quis laborum in unde magnam temporibus autem earum, tempora fugit nostrum.
+      </p>
+    </section>
+
+    <section>
+      <h2>Text</h2>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda dolores sapiente nulla perspiciatis repellendus libero eos, ipsam fuga rerum sit fugit officia odio eaque vel iste temporibus possimus quo reprehenderit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed numquam ipsum ratione deserunt enim neque, culpa est totam, quis laborum in unde magnam temporibus autem earum, tempora fugit nostrum.
+      </p>
+
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda dolores sapiente nulla perspiciatis repellendus libero eos, ipsam fuga rerum sit fugit officia odio eaque vel iste temporibus possimus quo reprehenderit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed numquam ipsum ratione deserunt enim neque, culpa est totam, quis laborum in unde magnam temporibus autem earum, tempora fugit nostrum.
+      </p>
+    </section>
+  </main>
 </body>
 </html>
