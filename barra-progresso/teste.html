@@ -11,28 +11,72 @@
             box-sizing: border-box;
         }
 
-        body{
-            height: 200vh;
+        section{
+            width: 90%;
+            height: 100vh;
+            margin: 2rem auto;
+            padding: 2rem;
+            display: grid;
+            place-content: center;
+            border-radius: .9rem;
+            box-shadow: 0 0 6px #e6e6e6;
         }
 
-        .progress{
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            width: 100%;
-            height: 5px;
+        .box{
+            height: 100vh;
+            inline-size: 90%;
+            border-radius: .9rem;
             background-color: coral;
+            margin: 0 auto;
+            transform: scaleX(0);
+            opacity: 1;
+
             animation: scroll linear;
-            animation-timeline: scroll();
+            animation-timeline: view();
+            animation-range: cover;
         }
 
         @keyframes scroll{
-            to{transform: translateX(-50%) scaleX(1);}
+            to{
+                transform: scaleX(1);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="progress"></div>
+    <section>
+        <h2>Scroll-driven</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fuga labore excepturi corrupti accusantium consequuntur, laboriosam libero aspernatur assumenda velit qui reiciendis, et placeat blanditiis sint autem, at aut dignissimos!
+            Fugiat excepturi, dolore pariatur eius unde incidunt tempore eligendi nihil? Rerum sint quis minus quasi temporibus, animi minima deserunt voluptate saepe aspernatur ea et dolores beatae sequi quibusdam placeat amet.
+            Natus ipsam nobis officiis in reiciendis dolorem voluptatem perspiciatis unde autem blanditiis doloremque aperiam earum nostrum cum assumenda esse eius dicta repellat a, porro, dolores at? Nihil dicta ad optio?
+            Doloribus culpa vel delectus architecto quas dignissimos ipsam odit, iure eveniet eos voluptatem quam provident laudantium in nam deleniti eaque unde itaque deserunt eius voluptatum ullam. Rem vitae dignissimos eos.
+            Illum consectetur unde sequi dolorum id alias. Dolor cupiditate rerum vitae maxime necessitatibus nostrum beatae a odio dolorem blanditiis commodi laboriosam adipisci sunt, ea quasi assumenda ipsa error distinctio? Quod.
+            Esse, unde magni consectetur numquam libero expedita enim dolore quisquam in quidem incidunt natus sequi amet dolorum animi similique neque. Dolore, aut. Dignissimos, minima porro ad quibusdam ipsam at ut.
+            Unde ab molestiae nostrum ipsam! Nulla, ex earum itaque quod, rem doloribus ad tenetur quidem quas culpa iste autem error quo inventore odit excepturi id? Amet consectetur necessitatibus perspiciatis consequatur.
+            Voluptatibus laborum provident nihil? Voluptatum dolorum ratione, assumenda impedit numquam quae fuga doloremque facilis. Error, modi! Quisquam minus natus vel? Itaque repellendus, similique quibusdam quaerat placeat reprehenderit deserunt tenetur tempore?
+            Cum, nihil reprehenderit minus accusamus, sequi et molestias eius impedit vitae perspiciatis quia eaque veniam odit, ipsa ipsam molestiae assumenda? Laboriosam harum, commodi ea veritatis totam nesciunt debitis similique iste?
+            Aliquam reprehenderit quas molestias quidem minima illum aperiam iusto alias asperiores debitis cumque, praesentium vitae accusantium est itaque culpa corporis quo consectetur voluptatibus! Porro quo praesentium laudantium provident quam sint?
+        </p>
+    </section>
+
+    <div class="box"></div>
+
+    <section>
+        <h2>Scroll-driven</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fuga labore excepturi corrupti accusantium consequuntur, laboriosam libero aspernatur assumenda velit qui reiciendis, et placeat blanditiis sint autem, at aut dignissimos!
+            Fugiat excepturi, dolore pariatur eius unde incidunt tempore eligendi nihil? Rerum sint quis minus quasi temporibus, animi minima deserunt voluptate saepe aspernatur ea et dolores beatae sequi quibusdam placeat amet.
+            Natus ipsam nobis officiis in reiciendis dolorem voluptatem perspiciatis unde autem blanditiis doloremque aperiam earum nostrum cum assumenda esse eius dicta repellat a, porro, dolores at? Nihil dicta ad optio?
+            Doloribus culpa vel delectus architecto quas dignissimos ipsam odit, iure eveniet eos voluptatem quam provident laudantium in nam deleniti eaque unde itaque deserunt eius voluptatum ullam. Rem vitae dignissimos eos.
+            Illum consectetur unde sequi dolorum id alias. Dolor cupiditate rerum vitae maxime necessitatibus nostrum beatae a odio dolorem blanditiis commodi laboriosam adipisci sunt, ea quasi assumenda ipsa error distinctio? Quod.
+            Esse, unde magni consectetur numquam libero expedita enim dolore quisquam in quidem incidunt natus sequi amet dolorum animi similique neque. Dolore, aut. Dignissimos, minima porro ad quibusdam ipsam at ut.
+            Unde ab molestiae nostrum ipsam! Nulla, ex earum itaque quod, rem doloribus ad tenetur quidem quas culpa iste autem error quo inventore odit excepturi id? Amet consectetur necessitatibus perspiciatis consequatur.
+            Voluptatibus laborum provident nihil? Voluptatum dolorum ratione, assumenda impedit numquam quae fuga doloremque facilis. Error, modi! Quisquam minus natus vel? Itaque repellendus, similique quibusdam quaerat placeat reprehenderit deserunt tenetur tempore?
+            Cum, nihil reprehenderit minus accusamus, sequi et molestias eius impedit vitae perspiciatis quia eaque veniam odit, ipsa ipsam molestiae assumenda? Laboriosam harum, commodi ea veritatis totam nesciunt debitis similique iste?
+            Aliquam reprehenderit quas molestias quidem minima illum aperiam iusto alias asperiores debitis cumque, praesentium vitae accusantium est itaque culpa corporis quo consectetur voluptatibus! Porro quo praesentium laudantium provident quam sint?
+        </p>
+    </section>
 </body>
 </html>
