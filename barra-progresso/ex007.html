@@ -11,53 +11,50 @@
             box-sizing: border-box;
         }
 
-        :root {
-            scroll-timeline-name: --my-scroller;
+        :root{
+            /* scroll-timeline-name: --scroll;
+            scroll-timeline-axis: y;
+            scroll-timeline-axis: block; */
 
-            scroll-timeline-axis: x;
-            scroll-timeline-axis: inline;
+            scroll-timeline: --scroll block;
         }
 
-        body {
-            /* margin: 0; */
-            overflow-y: hidden;
+        body{
+            overflow-x: hidden;
         }
 
-        .content {
-            height: 300vh;
+        .container{
             width: 300%;
+            height: 200vh;
         }
 
-        .box {
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-            background-color: rebeccapurple;
+        .box{
             position: fixed;
             top: 25px;
             left: 25px;
+            width: 100px;
+            height: 100px;
+            border-radius: .8rem;
+            background-color: coral;
+            animation: scroll linear;
+            animation-timeline: --scroll;
         }
 
-        .animation {
-            animation: rotate-appear 1ms linear;
-            animation-timeline: --my-scroller;
-        }
-
-        @keyframes rotate-appear {
-            from {
-                rotate: 0deg;
-                top: 25px;
+        @keyframes scroll{
+            from{
+                left: 25px;
+                transform: rotate(0deg);
             }
 
-            to {
-                rotate: 720deg;
-                top: 100%;
+            to{
+                left: 100%;
+                transform: rotate(720deg);
             }
         }
     </style>
 </head>
 <body>
-    <div class="content"></div>
-  <div class="box animation"></div>
+    <div class="container"></div>
+    <div class="box"></div>
 </body>
 </html>
