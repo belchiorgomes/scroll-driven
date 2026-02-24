@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito parallax</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            overflow-x: hidden;
+        }
+
+        .container{
+            height: 300vh;
+            display: grid;
+            place-content: center;
+        }
+
+        .box{
+            position: sticky;
+            top: 10%;
+            transform: translateY(-10%);
+            width: 300px;
+            height: 300px;
+            border-radius: .8rem;
+            background-color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" style="--bg-color: #ff7f50;"></div>
+        <div class="box" style="--bg-color: #50fff0;"></div>
+        <div class="box" style="--bg-color: #f950ff;"></div>
+    </div>
+</body>
+</html>
