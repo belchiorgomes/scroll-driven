@@ -83,9 +83,19 @@
                     li{
                         display: grid;
                         grid-template-columns: 1fr;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 12px 18px;
+                        text-align: center;
+                        border: 1px solid red;
 
                         span{
                             grid-area: 1/1;
+                        }
+
+                        .icon{
+                            position: absolute;
+                            transform: translateY(60px);
                         }
                     }
 
