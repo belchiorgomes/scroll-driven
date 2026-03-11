@@ -11,15 +11,71 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        body{
+            min-height: 200vh;
+        }
+
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #f3f3f3;
+            width: 100%;
+
+            .nav-container{
+                width: 90%;
+                height: 90px;
+                /* background-color: aqua; */
+                margin: 0 auto;
+
+                ul{
+                    height: 100%;
+                    list-style-type: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    gap: 1.5rem;
+
+                    li:first-child{
+                        margin-right: auto;
+                    }
+
+                    li{
+                        /* background-color: aliceblue; */
+                        /* position: relative; */
+                        height: 100%;
+                        padding: 0 18px;
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        place-items: center;
+
+                        span{
+                            grid-area: 1/1;
+                        }
+
+                        .icon{
+                            transform: scale(0);
+                            animation: icon linear forwards;
+                            animation-timeline: scroll();
+                        }
+                    }
+                }
+            }
+        }
+
+        @keyframes icon{
+            to{transform: scale(1);}
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
             <ul>
-                <li class="logo">
+                <li>
                     <span class="text">Apple</span>
-                    <span class="icon"><i class="fa-brands fa-apple"></i></span>
+                    <span class="icon"><a href="#"><i class="fa-brands fa-apple"></i></a></span>
                 </li>
 
                 <li>
